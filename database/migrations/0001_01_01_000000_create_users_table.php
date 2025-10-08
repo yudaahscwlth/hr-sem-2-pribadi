@@ -12,12 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('user', function (Blueprint $table) {
-            $table->id('id_user');
-            $table->string('username')->unique();
-            $table->string('password');
-            $table->string('role');
-            $table->unsignedBigInteger('id_pegawai');
+            $table->integer('id_user')->primary()->autoIncrement();
+            $table->string('username', 255)->unique();
+            $table->string('password', 255);
+            $table->enum('role', ['pegawai', 'hrd', 'kepala_yayasan']);
+            $table->integer('id_pegawai')->nullable();
             $table->timestamps();
+            
+            // Indexes
+            $table->index('id_pegawai');
+            $table->index('role');
+            
+            // Foreign key akan ditambahkan di migration terpisah setelah tabel pegawai dibuat
         });
     }
 

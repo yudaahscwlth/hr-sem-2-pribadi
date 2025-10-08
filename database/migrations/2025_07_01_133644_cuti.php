@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('cuti', function (Blueprint $table) {
-            $table->id('id_cuti');
-            $table->Integer('id_pegawai'); // INT UNSIGNED, sama seperti pegawai.id_pegawai
+            $table->bigIncrements('id_cuti');
+            $table->integer('id_pegawai');
+            $table->integer('disetujui_oleh')->nullable();
             $table->date('tanggal_pengajuan');
             $table->date('tanggal_mulai');
             $table->date('tanggal_selesai');
@@ -38,6 +39,7 @@ return new class extends Migration
 
             // Indexes for better performance
             $table->index('id_pegawai');
+            $table->index('disetujui_oleh');
             $table->index('id_jenis_cuti');
             $table->index('status_cuti');
             $table->index('tanggal_pengajuan');
