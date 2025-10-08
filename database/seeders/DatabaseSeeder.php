@@ -22,15 +22,21 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         $this->call([
-            // JabatanSeeder::class,
-            // DepartemenSeeder::class,
-            // PegawaiSeeder::class,
-            // UserSeeder::class,
-            // JenisCutiSeeder::class
-            // LokasiKantorSeeder::class
-            // KuisionerSeeder::class
+            // Master Data (sesuai db/dummyhr.sql)
+            DepartemenSeeder::class,
+            JabatanSeeder::class,
+            JenisCutiSeeder::class,
+            LokasiKantorSeeder::class,
+            
+            // Data Pegawai & User Utama
+            PegawaiUtamaSeeder::class,
+            UserUtamaSeeder::class,
+            
+            // Uncomment jika diperlukan:
+            // PegawaiSeeder::class, // Untuk generate pegawai random tambahan
+            // KehadiranSeeder::class,
+            // KuisionerSeeder::class,
             // PeriodePenilaianSeeder::class,
-            KehadiranSeeder::class,
         ]);
         
     }

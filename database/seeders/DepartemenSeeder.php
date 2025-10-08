@@ -10,9 +10,9 @@ class DepartemenSeeder extends Seeder
     public function run(): void
     {
         DB::table('departemen')->insert([
-            ['nama_departemen' => 'Teknologi Informasi', 'kepala_departemen' => null],
-            ['nama_departemen' => 'Keuangan', 'kepala_departemen' => null],
-            ['nama_departemen' => 'Sumber Daya Manusia', 'kepala_departemen' => null],
+            ['id_departemen' => 1, 'nama_departemen' => 'Teknologi Informasi', 'kepala_departemen' => null],
+            ['id_departemen' => 2, 'nama_departemen' => 'Keuangan', 'kepala_departemen' => null],
+            ['id_departemen' => 3, 'nama_departemen' => 'Sumber Daya Manusia', 'kepala_departemen' => null],
         ]);
     }
 }
